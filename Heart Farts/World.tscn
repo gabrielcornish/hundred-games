@@ -1,8 +1,13 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://background.png" type="Texture" id=1]
 [ext_resource path="res://Wall.tres" type="TileSet" id=2]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Camera2D.gd" type="Script" id=4]
+[ext_resource path="res://FollowWalls.gd" type="Script" id=5]
+[ext_resource path="res://HeartEmitter.tscn" type="PackedScene" id=6]
+[ext_resource path="res://World.gd" type="Script" id=7]
+[ext_resource path="res://Score.gd" type="Script" id=8]
 
 [sub_resource type="TileSet" id=1]
 0/name = "background.png 0"
@@ -16,18 +21,62 @@
 0/shapes = [  ]
 0/z_index = 0
 
+[sub_resource type="DynamicFontData" id=2]
+antialiased = false
+font_path = "res://fonts/PrStart.ttf"
+
+[sub_resource type="DynamicFont" id=3]
+size = 19
+use_mipmaps = true
+font_data = SubResource( 2 )
+
 [node name="World" type="Node2D"]
+script = ExtResource( 7 )
 
 [node name="Background" type="TileMap" parent="."]
 tile_set = SubResource( 1 )
 format = 1
 tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 65536, 0, 0, 65537, 0, 0, 65538, 0, 0, 65539, 0, 0, 131072, 0, 0, 131073, 0, 0, 131074, 0, 0, 131075, 0, 0, 196608, 0, 0, 196609, 0, 0, 196610, 0, 0, 196611, 0, 0, 262144, 0, 0, 262145, 0, 0, 262146, 0, 0, 262147, 0, 0 )
 
-[node name="TileMap" type="TileMap" parent="."]
+[node name="HeartEmitter" parent="." instance=ExtResource( 6 )]
+playerInstance = NodePath("../Player")
+
+[node name="WallMap" type="TileMap" parent="."]
 tile_set = ExtResource( 2 )
 cell_size = Vector2( 32, 32 )
 format = 1
 tile_data = PoolIntArray( 0, 0, 0, 6, 0, 0, 65536, 0, 0, 65542, 0, 0, 131072, 0, 0, 131078, 0, 0, 196608, 0, 0, 196614, 0, 0, 262144, 0, 0, 262150, 0, 0, 327680, 0, 0, 327686, 0, 0, 393216, 0, 0, 393222, 0, 0, 458752, 0, 0, 458758, 0, 0, 524288, 0, 0, 524294, 0, 0, 589824, 0, 0, 589825, -1073741824, 0, 589826, -1073741824, 0, 589827, -1073741824, 0, 589828, -1073741824, 0, 589829, -1073741824, 0, 589830, 0, 0 )
 
+[node name="FollowWalls" type="TileMap" parent="."]
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 32, 32 )
+format = 1
+tile_data = PoolIntArray( -917504, 0, 0, -917498, 0, 0, -851968, 0, 0, -851962, 0, 0, -786432, 0, 0, -786426, 0, 0, -720896, 0, 0, -720890, 0, 0, -655360, 0, 0, -655354, 0, 0, -589824, 0, 0, -589818, 0, 0, -524288, 0, 0, -524282, 0, 0, -458752, 0, 0, -458746, 0, 0, -393216, 0, 0, -393210, 0, 0, -327680, 0, 0, -327674, 0, 0, -262144, 0, 0, -262138, 0, 0, -196608, 0, 0, -196602, 0, 0, -131072, 0, 0, -131066, 0, 0, -65536, 0, 0, -65530, 0, 0, 0, 0, 0, 6, 0, 0, 65536, 0, 0, 65542, 0, 0, 131072, 0, 0, 131078, 0, 0, 196608, 0, 0, 196614, 0, 0, 262144, 0, 0, 262150, 0, 0, 327680, 0, 0, 327686, 0, 0, 393216, 0, 0, 393222, 0, 0 )
+script = ExtResource( 5 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 112, 175.5 )
+current = true
+script = ExtResource( 4 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Camera2D"]
+margin_left = -78.0
+margin_top = -146.0
+margin_right = 77.0
+margin_bottom = -126.0
+custom_fonts/normal_font = SubResource( 3 )
+custom_colors/default_color = Color( 1, 1, 1, 1 )
+scroll_active = false
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( 112, 176 )
+position = Vector2( 112, 256 )
+heart_emmiter = NodePath("../HeartEmitter")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
