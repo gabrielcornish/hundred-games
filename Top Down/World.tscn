@@ -1,0 +1,64 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://sprites/background.png" type="Texture" id=2]
+[ext_resource path="res://Energy.gd" type="Script" id=3]
+[ext_resource path="res://World.gd" type="Script" id=4]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.160784, 0.678431, 1, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+anti_aliasing = false
+
+[node name="World" type="Node2D"]
+script = ExtResource( 4 )
+ui = NodePath("Control/Energy")
+
+[node name="Background" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+centered = false
+
+[node name="Control" type="Control" parent="."]
+margin_right = 320.0
+margin_bottom = 32.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Energy" type="ProgressBar" parent="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 110.0
+margin_top = 3.0
+margin_right = -110.0
+margin_bottom = -13.0
+rect_min_size = Vector2( 100, 16 )
+custom_styles/fg = SubResource( 1 )
+custom_styles/bg = SubResource( 2 )
+step = 0.01
+value = 100.0
+rounded = true
+percent_visible = false
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Screen Edge" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Screen Edge"]
+polygon = PoolVector2Array( 0, 240, 0, 0, 320, 0, 320, 240, 336, 240, 336, -16, 0, -16, -16, -16, -16, 256, 336, 256, 336, 240, 320, 240 )
