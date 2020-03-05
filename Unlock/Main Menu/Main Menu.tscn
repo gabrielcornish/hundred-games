@@ -1,18 +1,13 @@
-[gd_scene load_steps=46 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Sprites/Title.png" type="Texture" id=1]
-[ext_resource path="res://Sprites/Title_lock.png" type="Texture" id=2]
-[ext_resource path="res://Main Menu/RotateAnim.gd" type="Script" id=3]
+[ext_resource path="res://Main Game/Lock.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Rain.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Main Menu/Swoop In.gd" type="Script" id=4]
 [ext_resource path="res://Assets/Borders/Borders/Black_And_Yellow/tileset_Black_And_Yellow.tres" type="TileSet" id=5]
-[ext_resource path="res://Sprites/Unlocker.png" type="Texture" id=6]
+[ext_resource path="res://Unlocker.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Sprites/namehandle.png" type="Texture" id=7]
-[ext_resource path="res://Main Menu/Unlocker_Player.gd" type="Script" id=8]
 [ext_resource path="res://Main Menu/Main Menu.gd" type="Script" id=9]
-[ext_resource path="res://Sprites/Title_lock_open.png" type="Texture" id=10]
-[ext_resource path="res://Main Menu/Lock.gd" type="Script" id=11]
-[ext_resource path="res://Sound/hover.wav" type="AudioStream" id=12]
-[ext_resource path="res://Sound/Select.wav" type="AudioStream" id=13]
 [ext_resource path="res://Sprites/transition.png" type="Texture" id=14]
 
 [sub_resource type="AtlasTexture" id=1]
@@ -66,154 +61,35 @@ tracks/1/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 1.2, 1.2 ), Vector2( 1, 1 ) ]
 }
 
-[sub_resource type="AtlasTexture" id=7]
-atlas = ExtResource( 2 )
-region = Rect2( 0, 0, 64, 96 )
-
-[sub_resource type="AtlasTexture" id=8]
-atlas = ExtResource( 2 )
-region = Rect2( 64, 0, 64, 96 )
-
-[sub_resource type="AtlasTexture" id=9]
-atlas = ExtResource( 2 )
-region = Rect2( 128, 0, 64, 96 )
-
-[sub_resource type="AtlasTexture" id=10]
-atlas = ExtResource( 2 )
-region = Rect2( 192, 0, 64, 96 )
-
-[sub_resource type="AtlasTexture" id=21]
-atlas = ExtResource( 10 )
-region = Rect2( 0, 0, 80, 96 )
-
-[sub_resource type="AtlasTexture" id=22]
-atlas = ExtResource( 10 )
-region = Rect2( 80, 0, 80, 96 )
-
-[sub_resource type="AtlasTexture" id=23]
-atlas = ExtResource( 10 )
-region = Rect2( 160, 0, 80, 96 )
-
-[sub_resource type="AtlasTexture" id=24]
-atlas = ExtResource( 10 )
-region = Rect2( 240, 0, 80, 96 )
-
-[sub_resource type="SpriteFrames" id=11]
-animations = [ {
-"frames": [ SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ) ],
-"loop": true,
-"name": "default",
-"speed": 10.0
-}, {
-"frames": [ SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ) ],
-"loop": true,
-"name": "open",
-"speed": 10.0
-} ]
-
-[sub_resource type="Animation" id=12]
-length = 0.6
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:rotation_degrees")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
-"update": 0,
-"values": [ 0.0, 17.3, 23.1, 0.1, -12.4, -16.1, 0.0 ]
-}
-
-[sub_resource type="RectangleShape2D" id=20]
-extents = Vector2( 30.4218, 47.1531 )
-
 [sub_resource type="AtlasTexture" id=13]
-atlas = ExtResource( 6 )
-region = Rect2( 0, 0, 80, 144 )
-
-[sub_resource type="AtlasTexture" id=14]
-atlas = ExtResource( 6 )
-region = Rect2( 80, 0, 80, 144 )
-
-[sub_resource type="AtlasTexture" id=15]
-atlas = ExtResource( 6 )
-region = Rect2( 160, 0, 80, 144 )
-
-[sub_resource type="AtlasTexture" id=16]
-atlas = ExtResource( 6 )
-region = Rect2( 240, 0, 80, 144 )
-
-[sub_resource type="SpriteFrames" id=17]
-animations = [ {
-"frames": [ SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ) ],
-"loop": true,
-"name": "default",
-"speed": 10.0
-} ]
-
-[sub_resource type="Animation" id=18]
-resource_name = "Wobble"
-length = 4.0
-step = 0.0
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 3.35758, 3.56235, 3.76235, 3.95885 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 160, 170.499 ), Vector2( 160, 170.499 ), Vector2( 170, 170.499 ), Vector2( 150, 170.499 ), Vector2( 160, 170.499 ) ]
-}
-
-[sub_resource type="ParticlesMaterial" id=19]
-lifetime_randomness = 1.0
-emission_shape = 2
-emission_box_extents = Vector3( 160, 1, 1 )
-flag_disable_z = true
-direction = Vector3( -200, 200, 0 )
-gravity = Vector3( 0, 98, 0 )
-initial_velocity = 400.0
-orbit_velocity = 0.0
-orbit_velocity_random = 0.0
-angle = 45.0
-angle_random = 1.0
-scale = 3.0
-scale_random = 0.5
-
-[sub_resource type="AtlasTexture" id=25]
 atlas = ExtResource( 14 )
 region = Rect2( 0, 0, 320, 240 )
 
-[sub_resource type="AtlasTexture" id=26]
+[sub_resource type="AtlasTexture" id=14]
 atlas = ExtResource( 14 )
 region = Rect2( 320, 0, 320, 240 )
 
-[sub_resource type="AtlasTexture" id=27]
+[sub_resource type="AtlasTexture" id=15]
 atlas = ExtResource( 14 )
 region = Rect2( 640, 0, 320, 240 )
 
-[sub_resource type="AtlasTexture" id=28]
+[sub_resource type="AtlasTexture" id=16]
 atlas = ExtResource( 14 )
 region = Rect2( 960, 0, 320, 240 )
 
-[sub_resource type="AtlasTexture" id=29]
+[sub_resource type="AtlasTexture" id=17]
 atlas = ExtResource( 14 )
 region = Rect2( 1280, 0, 320, 240 )
 
-[sub_resource type="SpriteFrames" id=30]
+[sub_resource type="SpriteFrames" id=18]
 animations = [ {
-"frames": [ SubResource( 25 ), SubResource( 26 ), SubResource( 27 ), SubResource( 28 ), SubResource( 29 ) ],
+"frames": [ SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ) ],
 "loop": false,
 "name": "default",
 "speed": 5.0
 } ]
 
-[sub_resource type="Animation" id=31]
+[sub_resource type="Animation" id=19]
 resource_name = "Rotate"
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:rotation_degrees")
@@ -225,83 +101,48 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ 0.0, 180.0 ]
+"values": [ 0.0, -180.0 ]
 }
 
 [node name="Main Menu" type="Node2D"]
 script = ExtResource( 9 )
 
 [node name="Handle" type="Sprite" parent="."]
-position = Vector2( 52.4103, 216.939 )
+position = Vector2( 39.5768, 230.799 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 7 )
 
 [node name="Title" type="AnimatedSprite" parent="."]
 position = Vector2( 160.548, 60 )
 frames = SubResource( 5 )
-frame = 2
+frame = 3
 playing = true
 
 [node name="Swoop In" type="AnimationPlayer" parent="Title"]
 "anims/Swoop In" = SubResource( 6 )
 script = ExtResource( 4 )
 
-[node name="Lock" type="AnimatedSprite" parent="."]
-position = Vector2( 289.915, 207.651 )
-scale = Vector2( 0.25, 0.25 )
-frames = SubResource( 11 )
+[node name="Lock" parent="." instance=ExtResource( 2 )]
+position = Vector2( 304.226, 222.941 )
 frame = 3
-playing = true
-script = ExtResource( 11 )
 
-[node name="RotateAnim" type="AnimationPlayer" parent="Lock"]
-playback_speed = 0.75
-anims/Rotate = SubResource( 12 )
-script = ExtResource( 3 )
-
-[node name="Area2D" type="Area2D" parent="Lock"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Lock/Area2D"]
-shape = SubResource( 20 )
-
-[node name="Hover" type="AudioStreamPlayer" parent="Lock"]
-stream = ExtResource( 12 )
-
-[node name="Select" type="AudioStreamPlayer" parent="Lock"]
-stream = ExtResource( 13 )
-
-[node name="Unlocker" type="AnimatedSprite" parent="."]
-position = Vector2( 160, 170.499 )
-frames = SubResource( 17 )
-frame = 2
-playing = true
-
-[node name="Unlocker_Player" type="AnimationPlayer" parent="Unlocker"]
-anims/Wobble = SubResource( 18 )
-script = ExtResource( 8 )
+[node name="Unlocker" parent="." instance=ExtResource( 6 )]
 
 [node name="TileMap" type="TileMap" parent="."]
+visible = false
 tile_set = ExtResource( 5 )
 cell_size = Vector2( 16, 16 )
 format = 1
 tile_data = PoolIntArray( 0, 47, 4, 1, 47, 196609, 2, 47, 196609, 3, 47, 196609, 4, 47, 196609, 5, 47, 196609, 6, 47, 196609, 7, 47, 196609, 8, 47, 196609, 9, 47, 196609, 10, 47, 196609, 11, 47, 196609, 12, 47, 196609, 13, 47, 196609, 14, 47, 196609, 15, 47, 196609, 16, 47, 196609, 17, 47, 196609, 18, 47, 196609, 19, 47, 7, 65536, 47, 65539, 65555, 47, 65539, 131072, 47, 65539, 131091, 47, 65539, 196608, 47, 65539, 196627, 47, 65539, 262144, 47, 65539, 262163, 47, 65539, 327680, 47, 65539, 327699, 47, 65539, 393216, 47, 65539, 393235, 47, 65539, 458752, 47, 65539, 458771, 47, 65539, 524288, 47, 65539, 524307, 47, 65539, 589824, 47, 65539, 589843, 47, 65539, 655360, 47, 65539, 655379, 47, 65539, 720896, 47, 65539, 720915, 47, 65539, 786432, 47, 65539, 786451, 47, 65539, 851968, 47, 65539, 851987, 47, 65539, 917504, 47, 196612, 917505, 47, 196609, 917506, 47, 196609, 917507, 47, 196609, 917508, 47, 196609, 917509, 47, 196609, 917510, 47, 196609, 917511, 47, 196609, 917512, 47, 196609, 917513, 47, 196609, 917514, 47, 196609, 917515, 47, 196609, 917516, 47, 196609, 917517, 47, 196609, 917518, 47, 196609, 917519, 47, 196609, 917520, 47, 196609, 917521, 47, 196609, 917522, 47, 196609, 917523, 47, 196615 )
 
-[node name="Particles2D" type="Particles2D" parent="."]
-position = Vector2( 309.595, -21.4214 )
-amount = 400
-lifetime = 10.0
-process_material = SubResource( 19 )
+[node name="Rain" parent="." instance=ExtResource( 3 )]
 
 [node name="TransitionScreen" type="AnimatedSprite" parent="."]
 visible = false
 position = Vector2( 160, 120 )
 scale = Vector2( 2, 2 )
-frames = SubResource( 30 )
+frames = SubResource( 18 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="TransitionScreen"]
-anims/Rotate = SubResource( 31 )
-[connection signal="animation_finished" from="Lock/RotateAnim" to="Lock/RotateAnim" method="_on_RotateAnim_animation_finished"]
-[connection signal="mouse_entered" from="Lock/Area2D" to="Lock" method="_on_Area2D_mouse_entered"]
-[connection signal="mouse_exited" from="Lock/Area2D" to="Lock" method="_on_Area2D_mouse_exited"]
-[connection signal="animation_finished" from="Unlocker/Unlocker_Player" to="Unlocker/Unlocker_Player" method="_on_Unlocker_Player_animation_finished"]
+anims/Rotate = SubResource( 19 )
 [connection signal="animation_finished" from="TransitionScreen" to="." method="_on_TransitionScreen_animation_finished"]

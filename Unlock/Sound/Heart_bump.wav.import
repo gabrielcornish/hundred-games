@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Heart_bump.wav-c1e53ed601427849f54d0607cb554c8e.sample"
+
+[deps]
+
+source_file="res://Sound/Heart_bump.wav"
+dest_files=[ "res://.import/Heart_bump.wav-c1e53ed601427849f54d0607cb554c8e.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

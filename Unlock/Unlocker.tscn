@@ -1,0 +1,55 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Main Menu/Unlocker_Player.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Unlocker.png" type="Texture" id=2]
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 80, 144 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 2 )
+region = Rect2( 80, 0, 80, 144 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 2 )
+region = Rect2( 160, 0, 80, 144 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 2 )
+region = Rect2( 240, 0, 80, 144 )
+
+[sub_resource type="SpriteFrames" id=11]
+animations = [ {
+"frames": [ SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ) ],
+"loop": true,
+"name": "default",
+"speed": 10.0
+} ]
+
+[sub_resource type="Animation" id=12]
+length = 4.0
+step = 0.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 3.35758, 3.56235, 3.76235, 3.95885 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 160, 182.387 ), Vector2( 160, 182.387 ), Vector2( 170, 182.387 ), Vector2( 150, 182.387 ), Vector2( 160, 182.387 ) ]
+}
+
+[node name="Unlocker" type="AnimatedSprite"]
+position = Vector2( 163.783, 183.026 )
+frames = SubResource( 11 )
+frame = 2
+playing = true
+
+[node name="Unlocker_Player" type="AnimationPlayer" parent="."]
+anims/Wobble = SubResource( 12 )
+script = ExtResource( 1 )
+[connection signal="animation_finished" from="Unlocker_Player" to="Unlocker_Player" method="_on_Unlocker_Player_animation_finished"]

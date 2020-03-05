@@ -22,6 +22,7 @@ config/icon="res://icon.png"
 [autoload]
 
 MainMusic="*res://MainMusic.tscn"
+Score="*res://Global_Score.gd"
 
 [display]
 
