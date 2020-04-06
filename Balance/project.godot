@@ -19,6 +19,10 @@ config/name="Balance"
 run/main_scene="res://World.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+game_logic="*res://game_logic.gd"
+
 [display]
 
 window/size/width=320
@@ -43,4 +47,5 @@ reload={
 
 [rendering]
 
+environment/default_clear_color=Color( 0.372549, 0.341176, 0.309804, 1 )
 environment/default_environment="res://default_env.tres"

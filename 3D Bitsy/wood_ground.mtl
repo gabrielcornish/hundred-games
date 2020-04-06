@@ -1,0 +1,6 @@
+# Created by Kenney (www.kenney.nl)
+
+newmtl stone
+Kd 0.5803922 0.5686275 0.7686275
+map_Kd Textures/stone.png
+

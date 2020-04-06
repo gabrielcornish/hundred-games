@@ -1,0 +1,12 @@
+- You can move to any node
+- Movement takes 1 turn
+- You 6 turns
+
+6 cards (black 123, red 123)
+place face down in 3 rows
+each row can't have the same number of cards
+flip two cards over
+place your die on a face down card. starting at 5 on the die.
+moving costs a turn. -1 on die.
+visited and matched cards score points
+Game over when die reaches 0
