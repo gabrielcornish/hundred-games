@@ -16,6 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Inkle Test"
+run/main_scene="res://examples/scenes/ink_runner.tscn"
 config/icon="res://icon.png"
 
 [rendering]
