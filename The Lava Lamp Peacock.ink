@@ -25,7 +25,7 @@ SOMETHING I HEARD
 "...Okie doke."
 */
 
-I game with my friends most nights.
+I game with my friends most nights. #IMAGE: lava_lamp_peacock.png
 
  We're supportive when we need to be, but it's important that we manage egos by making fun of eachother.
 

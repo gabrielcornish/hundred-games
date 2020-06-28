@@ -32,7 +32,7 @@ Therefor I throw it into a bowl and eat it.
 */
 
 
-The nice thing about making a cake for your wife's birthday is... 
+The nice thing about making a cake for your wife's birthday is... #IMAGE: radioactive_blue_frosting.png
 
 * Usually no one wants to eat it.
 
